@@ -11,6 +11,7 @@ public class PlayerController2 : MonoBehaviour{
     [SerializeField] Collider2D collider2;
 	[SerializeField] float speed = 5.0f;
 	[SerializeField] bool isFacingRight = true;
+    Object bulletRef;
     private bool moving = false;
     private float t = 0.0f;
 
@@ -18,6 +19,7 @@ public class PlayerController2 : MonoBehaviour{
     // Start is called before the first frame update
     void Start()
     {
+        bulletRef = Resources.Load("Bullet");
 		if (rigid == null)
 			rigid = GetComponent<Rigidbody2D>();
     }
@@ -65,6 +67,14 @@ public class PlayerController2 : MonoBehaviour{
             t = 0.0f;
         }
 
+        if(Input.GetButtonDown("Fire1"))
+        {
+            // Fire !!
+            Debug.Log("Fire!");
+            GameObject bullet = (GameObject)Instantiate(bulletRef);
+            bullet.transform.position = new Vector3(transform.position.x + 7.5f, transform.position.y + .2f, -1);
+        }
+
     }
 
     //called potentially multiple times per frame, best for physics for smooth behavior
@@ -89,5 +99,19 @@ public class PlayerController2 : MonoBehaviour{
 
         isFacingRight = !isFacingRight;
 	}
+	// private void OnTriggerEnter2D(Collider2D collision)
+	// {
+	// 	if (collision.gameObject.tag == "EnemyBullet")
+	// 	{
+	// 		Debug.Log("collided with EnemyBullet");
+	// 	}
+	// 	if (controller.GetComponent<HealthKeeper>().returnPHealth() <= 0)
+    //     {
+	// 		AudioSource.PlayClipAtPoint(audioEx.clip, transform.position);
+	// 		Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
+	// 		Destroy(gameObject);
+	// 	}
+	// }
+
 
 }
