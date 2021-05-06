@@ -1,0 +1,138 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/junior/CISC3667/PlaneGame
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54600
+Successfully changed project path to: /Users/junior/CISC3667/PlaneGame
+/Users/junior/CISC3667/PlaneGame
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 73.77 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.2f1 (8fd9074bf66c)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/junior/CISC3667/PlaneGame/Assets
+GfxDevice: creating device client; threaded=0
+2021-05-01 22:54:59.656 Unity[25496:410650] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics (low power)
+2021-05-01 22:54:59.656 Unity[25496:410650] Metal devices available: 1
+2021-05-01 22:54:59.656 Unity[25496:410650] 0: Intel(R) Iris(TM) Plus Graphics (low power)
+2021-05-01 22:54:59.660 Unity[25496:410650] Using device Intel(R) Iris(TM) Plus Graphics (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56496
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.2f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000732 seconds.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 51.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.701 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000548 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 40.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.276 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.2f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1824 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 142.8 MB.
+System memory in use after: 142.7 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2266.
+Total: 2.736862 ms (FindLiveObjects: 0.354098 ms CreateObjectMapping: 0.146667 ms MarkObjects: 2.013238 ms  DeleteObjects: 0.221730 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/UnityPlaneGame-main/bullet sprite.prefab
+  artifactKey: Guid(316fe468aaccf5d4f8e3ff9622e644f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UnityPlaneGame-main/bullet sprite.prefab using Guid(316fe468aaccf5d4f8e3ff9622e644f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359e2b055af27c40c48cb4d9860e822a') in 1.977086 seconds
+  Import took 1.982553 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 64.716998 seconds.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(834ab33c5f16644588b1e3fd25c549f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(834ab33c5f16644588b1e3fd25c549f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af072d3ce8c6eb5334f7537df4b461a9') in 0.004147 seconds
+  Import took 0.009718 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 97.671704 seconds.
+  path: Assets/GameImage
+  artifactKey: Guid(4907bb7a9c1ea44fcb348c6148c61f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameImage using Guid(4907bb7a9c1ea44fcb348c6148c61f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e0d94f37dfb835a0b1bdf21156fab0e') in 0.002743 seconds
+  Import took 0.009807 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 49.980755 seconds.
+  path: Assets/UnityPlaneGame-main/Standard Assets
+  artifactKey: Guid(c6195a43a0187a34e9c6be23520d3766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UnityPlaneGame-main/Standard Assets using Guid(c6195a43a0187a34e9c6be23520d3766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ead2ecde14a66db7ceaad4cbc891b7d') in 0.001728 seconds
+  Import took 0.008675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.436238 seconds.
+  path: Assets/UnityPlaneGame-main/explosion animation.anim
+  artifactKey: Guid(9a38f7fe3991b464abf81ea0069aeb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UnityPlaneGame-main/explosion animation.anim using Guid(9a38f7fe3991b464abf81ea0069aeb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd560eb94327458949dba5c7e8595d3bc') in 0.416186 seconds
+  Import took 0.420744 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 710.634743 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(d71dc65d950c646c78ff56a51bd334aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(d71dc65d950c646c78ff56a51bd334aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b085054560d8e1d8163b1b61ba33effc') in 0.005346 seconds
+  Import took 0.033640 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.592789 seconds.
+  path: Assets/PlayerController.cs
+  artifactKey: Guid(bdcfdffd3e10d4b27b0d781fc20e5d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayerController.cs using Guid(bdcfdffd3e10d4b27b0d781fc20e5d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9476d8ecd6bc6c4097da4f53e298732c') in 0.530930 seconds
+  Import took 0.535576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 192.899950 seconds.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(bdcfdffd3e10d4b27b0d781fc20e5d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PlayerController.cs using Guid(bdcfdffd3e10d4b27b0d781fc20e5d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8e0d6782aa69dad9697e5ed3f0b8776') in 0.026202 seconds
+  Import took 0.065895 seconds .
+
