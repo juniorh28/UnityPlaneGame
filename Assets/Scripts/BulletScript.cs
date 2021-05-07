@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    [SerializeField] float speed;
+    [SerializeField] int damage;
+    [SerializeField] float timeToDestroy = 3;
+
     Rigidbody2D rigidBody2D;
     // Start is called before the first frame update
-    void Start()
-    {
-        rigidBody2D = GetComponent<Rigidbody2D>();
-    }
-    void FixedUpdate()
-    {
-        rigidBody2D.velocity = new Vector2(20, rigidBody2D.velocity.y);//left and Right movement
-        //rigidBody2D.AddForce(new Vector2(20,0));
-    }
+    // void Start()
+    // {
+    //     rigidBody2D = GetComponent<Rigidbody2D>();
+    // }
+    // void FixedUpdate()
+    // {
+    //     rigidBody2D.velocity = new Vector2(20, rigidBody2D.velocity.y);//left and Right movement
+    //     //rigidBody2D.AddForce(new Vector2(20,0));
+    // }
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -23,6 +27,19 @@ public class BulletScript : MonoBehaviour
 			Debug.Log("collided with Enemy");
             Destroy(gameObject);
 	 	}
+    }
+    public void StartShoot(bool isFacingRight)
+    {
+        Rigidbody2D rigid2D = GetComponent<Rigidbody2D>();
+        if(isFacingRight)
+        {
+            rigid2D.velocity =  new Vector2(speed,0);   //shoot towards right
+        }
+        else{
+            rigid2D.velocity =  new Vector2(-speed,0);  //shoot towards left
+        }
+
+        Destroy(gameObject,timeToDestroy);
     }
 	// 	if (controller.GetComponent<HealthKeeper>().returnPHealth() <= 0)
     //     {

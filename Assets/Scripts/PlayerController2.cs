@@ -9,28 +9,35 @@ public class PlayerController2 : MonoBehaviour{
     [SerializeField] float movementY;
 	[SerializeField] Rigidbody2D rigid;
     [SerializeField] Collider2D collider2;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform bulletSpawnPos;
 	[SerializeField] float speed = 5.0f;
-	[SerializeField] bool isFacingRight = true;
+	[SerializeField] bool isFacingRight;
     Object bulletRef;
     private bool moving = false;
     private float t = 0.0f;
 
+    private bool isShooting;
 
+    [SerializeField] private float shootDelay = .5f;
+ 
     // Start is called before the first frame update
     void Start()
     {
-        bulletRef = Resources.Load("Bullet");
-		if (rigid == null)
-			rigid = GetComponent<Rigidbody2D>();
+        // bulletRef = Resources.Load("Bullet");
+        // bulletRef.GetComponent<BulletScript>().StartShoot();
+        // bulletRef.transform.position = bulletSpawnPos.transform.position;
+		// if (rigid == null)
+		// 	rigid = GetComponent<Rigidbody2D>();
     }
 
 
     // Update is called once per frame; good for user input
     void Update()
     {
-		movementX = Input.GetAxis("Horizontal");
+		//movementX = Input.GetAxis("Horizontal");
         //Debug.Log("MovementX: "+ movementX);
-        movementY = Input.GetAxis("Vertical");
+        //movementY = Input.GetAxis("Vertical");
         //Debug.Log("MovementY: "+ movementY);
         //Vector2 movement = new Vector2(movementX, movementY);
         //rigid.AddForce(movement * speed);
@@ -54,7 +61,10 @@ public class PlayerController2 : MonoBehaviour{
          //Press the Left arrow key to move the RigidBody leftwards
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            if(isFacingRight)
+                Flip();
             rigid.velocity = new Vector2(-15.0f, 0.0f);
+            isFacingRight = false;
             moving = true;
             t = 0.0f;
         }
@@ -62,17 +72,29 @@ public class PlayerController2 : MonoBehaviour{
          //Press the Right arrow key to move the RigidBody rightwards
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            if(!isFacingRight)
+                Flip();
             rigid.velocity = new Vector2(15.0f, 0.0f);
+            isFacingRight=true;
             moving = true;
             t = 0.0f;
         }
 
         if(Input.GetButtonDown("Fire1"))
         {
+            if(isShooting)return;
             // Fire !!
             Debug.Log("Fire!");
-            GameObject bullet = (GameObject)Instantiate(bulletRef);
-            bullet.transform.position = new Vector3(transform.position.x + 7.5f, transform.position.y + .2f, -1);
+            isShooting = true;
+
+            //Instantiate and shoot
+            GameObject b = Instantiate(bullet); 
+            b.GetComponent<BulletScript>().StartShoot(isFacingRight);
+            b.transform.position = bulletSpawnPos.transform.position;//causes the bullet to spawn in front of player
+            Invoke("ResetShoot",shootDelay);
+
+            // GameObject bullet = (GameObject)Instantiate(bulletRef);
+            // bullet.transform.position = new Vector3(transform.position.x + 7.5f, transform.position.y + .2f, -1);
         }
 
     }
@@ -84,8 +106,8 @@ public class PlayerController2 : MonoBehaviour{
        // rigid.velocity = new Vector2(movementX * speed, rigid.velocity.y);//left and Right movement
 		// Vector2 movement = new Vector2(movementX, movementY);
         // rigid.AddForce(movement * speed);
-        if (movementX < 0 && isFacingRight || movementX > 0 && !isFacingRight)
-			Flip();
+        // if (rigid.velocity.x>0 && isFacingRight ||  rigid.velocity.x<0 && !isFacingRight)
+		// 	Flip();
 
 	}
 
@@ -99,6 +121,11 @@ public class PlayerController2 : MonoBehaviour{
 
         isFacingRight = !isFacingRight;
 	}
+
+    void ResetShoot()
+    {
+        isShooting = false;
+    }
 	// private void OnTriggerEnter2D(Collider2D collision)
 	// {
 	// 	if (collision.gameObject.tag == "EnemyBullet")
