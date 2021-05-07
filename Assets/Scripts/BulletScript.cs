@@ -7,13 +7,14 @@ public class BulletScript : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int damage;
     [SerializeField] float timeToDestroy = 3 ;
+    [SerializeField] AudioSource audioSrc;
 
     Rigidbody2D rigidBody2D;
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     rigidBody2D = GetComponent<Rigidbody2D>();
-    // }
+    //Start is called before the first frame update
+    void Start()
+    {
+        audioSrc=GetComponent<AudioSource>();
+    }
     // void FixedUpdate()
     // {
     //     rigidBody2D.velocity = new Vector2(20, rigidBody2D.velocity.y);//left and Right movement
@@ -26,6 +27,7 @@ public class BulletScript : MonoBehaviour
 		{
 			Debug.Log("collided with Enemy");
             Destroy(gameObject);
+            audioSrc.Play();
 	 	}
     }
     public void StartShoot(bool isFacingRight)

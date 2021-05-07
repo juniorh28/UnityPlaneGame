@@ -26,24 +26,12 @@ public class PlayerController2 : MonoBehaviour{
     void Start()
     {
         audioSrc=GetComponent<AudioSource>();
-        // bulletRef = Resources.Load("Bullet");
-        // bulletRef.GetComponent<BulletScript>().StartShoot();
-        // bulletRef.transform.position = bulletSpawnPos.transform.position;
-		// if (rigid == null)
-		// 	rigid = GetComponent<Rigidbody2D>();
     }
 
 
     // Update is called once per frame; good for user input
-    void Update()
+    void FixedUpdate()
     {
-		//movementX = Input.GetAxis("Horizontal");
-        //Debug.Log("MovementX: "+ movementX);
-        //movementY = Input.GetAxis("Vertical");
-        //Debug.Log("MovementY: "+ movementY);
-        //Vector2 movement = new Vector2(movementX, movementY);
-        //rigid.AddForce(movement * speed);
-
         //Press the Up arrow key to move the RigidBody upwards
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
@@ -96,25 +84,11 @@ public class PlayerController2 : MonoBehaviour{
             b.transform.position = bulletSpawnPos.transform.position;//causes the bullet to spawn in front of player
             Invoke("ResetShoot",shootDelay);
 
-            // GameObject bullet = (GameObject)Instantiate(bulletRef);
-            // bullet.transform.position = new Vector3(transform.position.x + 7.5f, transform.position.y + .2f, -1);
-        }
+       }
 
     }
 
-    //called potentially multiple times per frame, best for physics for smooth behavior
-    void FixedUpdate()
-	{
-		//rigid.velocity = new Vector2(movementY * speed, rigid.velocity.x);//Up and down movement
-       // rigid.velocity = new Vector2(movementX * speed, rigid.velocity.y);//left and Right movement
-		// Vector2 movement = new Vector2(movementX, movementY);
-        // rigid.AddForce(movement * speed);
-        // if (rigid.velocity.x>0 && isFacingRight ||  rigid.velocity.x<0 && !isFacingRight)
-		// 	Flip();
-
-	}
-
-        void Flip()
+    void Flip()
 	{
 		Vector3 playerScale = transform.localScale;
 		playerScale.x = playerScale.x * -1;
