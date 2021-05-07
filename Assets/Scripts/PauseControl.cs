@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseControl : MonoBehaviour
 {
+    [SerializeField] GameObject PauseScreen;
     public static bool gameIsPaused;
 
     void Update()
@@ -15,15 +16,22 @@ public class PauseControl : MonoBehaviour
         }
     }
 
-    void PauseGame ()
+    public void PauseGame ()
     {
         if(gameIsPaused)
         {
             Time.timeScale = 0f;
+            PauseScreen.SetActive(true);
         }
         else 
         {
-            Time.timeScale = 1;
+            UnpauseGame();
         }
+    }
+    public void UnpauseGame()
+    {
+
+        Time.timeScale = 1;
+        PauseScreen.SetActive(false);
     }
 }

@@ -36,7 +36,7 @@ public class PlayerController2 : MonoBehaviour{
         //rigid.AddForce(movement * speed);
 
         //Press the Up arrow key to move the RigidBody upwards
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             rigid.velocity = new Vector2(0.0f, 15.0f);
             moving = true;
@@ -44,7 +44,7 @@ public class PlayerController2 : MonoBehaviour{
         }
 
         //Press the Down arrow key to move the RigidBody downwards
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             rigid.velocity = new Vector2(0.0f, -15.0f);
             moving = true;
@@ -52,7 +52,7 @@ public class PlayerController2 : MonoBehaviour{
         }
 
          //Press the Left arrow key to move the RigidBody leftwards
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             rigid.velocity = new Vector2(-15.0f, 0.0f);
             moving = true;
@@ -60,7 +60,7 @@ public class PlayerController2 : MonoBehaviour{
         }
 
          //Press the Right arrow key to move the RigidBody rightwards
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             rigid.velocity = new Vector2(15.0f, 0.0f);
             moving = true;
