@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 679225031}
   - component: {fileID: 679225032}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: VolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1002,7 +1002,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 7cfecfc46d0924f6c9df8369737ce6af, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1099,8 +1099,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780321063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0013, y: -0.0181, z: 0}
-  m_LocalScale: {x: 3.2075574, y: 2.6802797, z: 1}
+  m_LocalPosition: {x: 0.0013, y: -0.0454, z: 0}
+  m_LocalScale: {x: 3.7105014, y: 2.66565, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3

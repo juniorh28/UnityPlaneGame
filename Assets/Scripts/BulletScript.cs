@@ -6,7 +6,7 @@ public class BulletScript : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] int damage;
-    [SerializeField] float timeToDestroy = 3;
+    [SerializeField] float timeToDestroy = 3 ;
 
     Rigidbody2D rigidBody2D;
     // Start is called before the first frame update

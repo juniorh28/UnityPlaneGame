@@ -359,7 +359,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press SPACE key to shoot
+  m_Text: 'Press SPACE key or Right click to shoot '
 --- !u!222 &919170998
 CanvasRenderer:
   m_ObjectHideFlags: 0

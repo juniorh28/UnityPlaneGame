@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController2 : MonoBehaviour{
 
 
+    [SerializeField] AudioSource audioSrc;
 	[SerializeField] float movementX;
     [SerializeField] float movementY;
 	[SerializeField] Rigidbody2D rigid;
@@ -24,6 +25,7 @@ public class PlayerController2 : MonoBehaviour{
     // Start is called before the first frame update
     void Start()
     {
+        audioSrc=GetComponent<AudioSource>();
         // bulletRef = Resources.Load("Bullet");
         // bulletRef.GetComponent<BulletScript>().StartShoot();
         // bulletRef.transform.position = bulletSpawnPos.transform.position;
@@ -83,6 +85,7 @@ public class PlayerController2 : MonoBehaviour{
         if(Input.GetButtonDown("Fire1"))
         {
             if(isShooting)return;
+            audioSrc.Play();//play the shooting audio
             // Fire !!
             Debug.Log("Fire!");
             isShooting = true;
