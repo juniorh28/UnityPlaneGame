@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController2 : MonoBehaviour{
 
 
     [SerializeField] AudioSource shootSFX;
-	[SerializeField] float movementX;
-    [SerializeField] float movementY;
+	// [SerializeField] float movementX;
+    // [SerializeField] float movementY;
 	[SerializeField] Rigidbody2D rigid;
     [SerializeField] Collider2D collider2;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawnPos;
 	[SerializeField] float speed = 5.0f;
 	[SerializeField] bool isFacingRight;
-    //Object bulletRef;
+    
+    [SerializeField] Slider healthBar;
     private bool moving = false;
     private float t = 0.0f;
 
@@ -105,19 +107,17 @@ public class PlayerController2 : MonoBehaviour{
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-        if (collision.gameObject.CompareTag("EnemyBullet"))
-		{
-			Debug.Log("collided with my bullet");
-	 	}
+        
+
 		if (collision.gameObject.CompareTag("Bullet"))
 		{
 			Debug.Log("collided with bullet");
-            //health--; 
+            healthBar.GetComponent<HealthBar>().DecreaseHealth(50);
             hitSrc.Play();
-            // if(health <= 0)
-            // {
-            //     Destroy(gameObject); 
-            // }
+            if(healthBar.value <= 0)
+            {
+                 Destroy(gameObject); 
+            }
 	 	}
     }
 

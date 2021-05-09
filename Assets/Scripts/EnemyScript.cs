@@ -71,6 +71,10 @@ public class EnemyScript : MonoBehaviour
 
     void ShootPlayer()
     {
+        //if player dont exiat, do not shoot
+        if(!player){
+            return;
+        }
         GameObject b = Instantiate(bullet);
         b.GetComponent<BulletScript>().StartShoot(!facingRight);
         b.transform.position = bulletSpawnPos.transform.position;//causes the bullet to spawn in front of player

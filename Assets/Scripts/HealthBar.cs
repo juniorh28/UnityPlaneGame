@@ -52,6 +52,17 @@ public class HealthBar : MonoBehaviour
     {
         health-=damage;
         Debug.Log(damage+" points of damage taken");
+        Debug.Log(health+" hp remaining");
+        if(health<=0){
+          Debug.Log("you died");
+          Death();
+        }
     }
+
+    public void Death()
+    {
+      Destroy(player);
+    }
+
 
 }
