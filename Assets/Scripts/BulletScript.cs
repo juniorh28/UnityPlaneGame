@@ -27,7 +27,13 @@ public class BulletScript : MonoBehaviour
 		{
 			Debug.Log("collided with Enemy");
             Destroy(gameObject);
-            audioSrc.Play();
+            //udioSrc.Play();
+	 	}
+         if (collision.gameObject.CompareTag("Player"))
+		{
+			Debug.Log("collided with Player");
+            Destroy(gameObject);
+            //audioSrc.Play();
 	 	}
     }
     public void StartShoot(bool isFacingRight)

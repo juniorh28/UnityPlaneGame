@@ -864,6 +864,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &891183619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 891183620}
+  m_Layer: 0
+  m_Name: enemyBulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &891183620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891183619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.31, y: 0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1105694531}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893512235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,9 +1389,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105694527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.16358, y: 6.0354786, z: 0}
+  m_LocalPosition: {x: -0.49, y: -4.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 891183620}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1380,6 +1411,9 @@ MonoBehaviour:
   player: {fileID: 2141677879}
   health: 3
   moveSpeed: 0
+  bulletSpawnPos: {fileID: 891183620}
+  bullet: {fileID: 2198067775327979282, guid: 5f129fe779ff54fad92f9b6a6ef46050, type: 3}
+  shootDelay: 0.5
   audioSrc: {fileID: 1902998587}
   hitSrc: {fileID: 1471824627}
 --- !u!82 &1105694533
@@ -2545,7 +2579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ca571cdbb03481cbe3c9448427303a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSrc: {fileID: 1902998587}
+  shootSFX: {fileID: 0}
   movementX: 0
   movementY: 0
   rigid: {fileID: 2141677881}

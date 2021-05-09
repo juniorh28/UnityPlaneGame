@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController2 : MonoBehaviour{
 
 
-    [SerializeField] AudioSource audioSrc;
+    [SerializeField] AudioSource shootSFX;
 	[SerializeField] float movementX;
     [SerializeField] float movementY;
 	[SerializeField] Rigidbody2D rigid;
@@ -14,18 +14,20 @@ public class PlayerController2 : MonoBehaviour{
     [SerializeField] Transform bulletSpawnPos;
 	[SerializeField] float speed = 5.0f;
 	[SerializeField] bool isFacingRight;
-    Object bulletRef;
+    //Object bulletRef;
     private bool moving = false;
     private float t = 0.0f;
 
     private bool isShooting;
 
     [SerializeField] private float shootDelay = .5f;
+
+    [SerializeField] AudioSource hitSrc;
  
     // Start is called before the first frame update
     void Start()
     {
-        audioSrc=GetComponent<AudioSource>();
+        shootSFX=GetComponent<AudioSource>();
     }
 
 
@@ -73,7 +75,7 @@ public class PlayerController2 : MonoBehaviour{
         if(Input.GetButtonDown("Fire1"))
         {
             if(isShooting)return;
-            audioSrc.Play();//play the shooting audio
+            shootSFX.Play();//play the shooting audio
             // Fire !!
             Debug.Log("Fire!");
             isShooting = true;
@@ -93,9 +95,6 @@ public class PlayerController2 : MonoBehaviour{
 		Vector3 playerScale = transform.localScale;
 		playerScale.x = playerScale.x * -1;
 		transform.localScale = playerScale;
-
-        //transform.Rotate(0, 180, 0);
-
         isFacingRight = !isFacingRight;
 	}
 
@@ -103,19 +102,24 @@ public class PlayerController2 : MonoBehaviour{
     {
         isShooting = false;
     }
-	// private void OnTriggerEnter2D(Collider2D collision)
-	// {
-	// 	if (collision.gameObject.tag == "EnemyBullet")
-	// 	{
-	// 		Debug.Log("collided with EnemyBullet");
-	// 	}
-	// 	if (controller.GetComponent<HealthKeeper>().returnPHealth() <= 0)
-    //     {
-	// 		AudioSource.PlayClipAtPoint(audioEx.clip, transform.position);
-	// 		Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
-	// 		Destroy(gameObject);
-	// 	}
-	// }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+	{
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+		{
+			Debug.Log("collided with my bullet");
+	 	}
+		if (collision.gameObject.CompareTag("Bullet"))
+		{
+			Debug.Log("collided with bullet");
+            //health--; 
+            hitSrc.Play();
+            // if(health <= 0)
+            // {
+            //     Destroy(gameObject); 
+            // }
+	 	}
+    }
 
 
 }

@@ -8,16 +8,21 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] int health = 3;
 
     [SerializeField] float moveSpeed;
+    [SerializeField] Transform bulletSpawnPos;
+    [SerializeField] GameObject bullet;
+    [SerializeField] private float shootDelay = .5f;
     Rigidbody2D rigidbody;
     private bool facingRight;
     [SerializeField] AudioSource audioSrc;
     [SerializeField] AudioSource hitSrc;
+    private bool isShooting;
     
     // Start is called before the first frame update
     void Start()
     {
         //audioSrc = GetComponent<AudioSource>();
         rigidbody = GetComponent<Rigidbody2D>();
+        InvokeRepeating("ShootPlayer", 2.0f, shootDelay);
     }
 
     // Update is called once per frame
@@ -40,6 +45,10 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+		{
+			Debug.Log("collided with my bullet");
+	 	}
 		if (collision.gameObject.CompareTag("Bullet"))
 		{
 			Debug.Log("collided with bullet");
@@ -59,4 +68,18 @@ public class EnemyScript : MonoBehaviour
 		transform.localScale = enemyScale;
 		facingRight = !facingRight;
 	}
+
+    void ShootPlayer()
+    {
+        GameObject b = Instantiate(bullet);
+        b.GetComponent<BulletScript>().StartShoot(!facingRight);
+        b.transform.position = bulletSpawnPos.transform.position;//causes the bullet to spawn in front of player
+        Invoke("ResetShoot",shootDelay);
+    }
+
+       void ResetShoot()
+    {
+        isShooting = false;
+    }
 }
+
