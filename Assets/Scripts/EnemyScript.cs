@@ -33,14 +33,16 @@ public class EnemyScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if the player is to the enemy's left and facing right
-        //or if the player is to the enemy's right and not facing right
-        if(player.transform.position.x < transform.position.x && !facingRight || 
-        player.transform.position.x > transform.position.x && facingRight){
-            Flip();
+        if(player){//if the player object exist check ...
+            //if the player is to the enemy's left and facing right
+            //or if the player is to the enemy's right and not facing right
+            if(player.transform.position.x < transform.position.x && !facingRight || 
+            player.transform.position.x > transform.position.x && facingRight){
+                Flip();
+            }
+            //move towards the player
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
         }
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,7 +75,8 @@ public class EnemyScript : MonoBehaviour
     {
         //if player dont exiat, do not shoot
         if(!player){
-            return;
+            CancelInvoke();
+           // return;
         }
         GameObject b = Instantiate(bullet);
         b.GetComponent<BulletScript>().StartShoot(!facingRight);
