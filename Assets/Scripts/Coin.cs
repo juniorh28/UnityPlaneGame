@@ -20,7 +20,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("COIN- collided with coin");
-            //controller.GetComponent<Scorekeeper>().IncrementScore();
+            controller.GetComponent<ScoreKeeper>().IncrementScore(2);
             AudioSource.PlayClipAtPoint(audio.clip, transform.position); //figure out if that is the best way of handling audio source/clip
             Destroy(gameObject);
 

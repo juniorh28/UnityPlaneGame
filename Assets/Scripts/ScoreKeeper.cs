@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Scorekeeper : MonoBehaviour
+public class ScoreKeeper : MonoBehaviour
 {
     [SerializeField] int score = 0;
     [SerializeField] Text scoreTxt;
@@ -67,3 +67,4 @@ public class Scorekeeper : MonoBehaviour
         nameTxt.text = "Welcome, " + PersistentData.Instance.GetName();
     }
 }
+
