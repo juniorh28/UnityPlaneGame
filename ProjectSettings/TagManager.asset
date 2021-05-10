@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - HealthTag
   - GameMusic
+  - Coin
   layers:
   - Default
   - TransparentFX

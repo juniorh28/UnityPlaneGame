@@ -17,6 +17,7 @@ public class PlayerController2 : MonoBehaviour{
 	[SerializeField] bool isFacingRight;
     
     [SerializeField] Slider healthBar;
+    [SerializeField] GameObject score;
     private bool moving = false;
     private float t = 0.0f;
 
