@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
 
+    public InputField input;
     public void PlayGame()
     {
+        PersistentData.Instance.SetName(input.text);
         SceneManager.LoadScene("Game");
     }
 
@@ -34,4 +37,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void SetName()
+    {
+        PersistentData.Instance.SetName(input.text);
+    }
+
+
 }
