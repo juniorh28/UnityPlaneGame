@@ -10,6 +10,7 @@ TagManager:
   - GameMusic
   - Coin
   - MenuSong
+  - Canvas
   layers:
   - Default
   - TransparentFX

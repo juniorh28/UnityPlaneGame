@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
             gameSong = ObjectMusic.GetComponent<AudioSource>();
             gameSong.volume = PersistentData.Instance.GetVolume();
         }
-        else if(sceneName == "Game") 
+        else if(sceneName == "Game" || sceneName == "Level2") 
         {
             ObjectMusic = GameObject.FindWithTag("GameMusic");
             gameSong = ObjectMusic.GetComponent<AudioSource>();
@@ -39,28 +39,12 @@ public class AudioManager : MonoBehaviour
         {
             Debug.Log("no audio");
         }
-
-        //set volume
-        // MusicVolume = PlayerPrefs.GetFloat("volume"); 
-        // audioSource.volume = PersistentData.Instance.GetVolume();
     }
 
     // Update is called once per frame
     void Update()
     {
         gameSong.volume = PersistentData.Instance.GetVolume();
-        //PlayerPrefs.SetFloat("volume", MusicVolume);
     }
 
-    // public void VolumeUpdater(float volume)
-    // {
-    //     MusicVolume = volume;
-    // }
-
-    // public void MusicReset()
-    // {
-    //     PlayerPrefs.DeleteKey("volume");
-    //     audioSource.volume = 1f;
-    //     volumeSlider.value = 1f;
-    // }
 }

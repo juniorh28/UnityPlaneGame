@@ -50,8 +50,9 @@ public class EnemyScript : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Bullet"))
 		{
-			Debug.Log("collided with bullet");
+			Debug.Log("player shot enemy with bullet");
             health--; 
+            Debug.Log("Enemy HP: "+health);
             hitSrc.Play();
             if(health <= 0)
             {

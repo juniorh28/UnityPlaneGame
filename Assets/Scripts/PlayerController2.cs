@@ -15,8 +15,8 @@ public class PlayerController2 : MonoBehaviour{
     [SerializeField] Transform bulletSpawnPos;
 	[SerializeField] float speed = 15.0f;
 	[SerializeField] bool isFacingRight;
-    
-    [SerializeField] Slider healthBar;
+    [SerializeField] GameObject healthBar;
+    //[SerializeField] Slider healthBar;
     [SerializeField] GameObject score;
 
     public GameObject Explosion;
@@ -145,7 +145,7 @@ public class PlayerController2 : MonoBehaviour{
 			Debug.Log("collided with bullet");
             healthBar.GetComponent<HealthBar>().DecreaseHealth(50);
             hitSrc.Play();
-            if(healthBar.value <= 0)
+            if(healthBar.GetComponent<HealthBar>().GetHealth() <= 0)
             {
                 Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
                 healthBar.GetComponent<HealthBar>().Death();

@@ -10,8 +10,8 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] GameObject player;
 
-    private Slider HealthSlider;
-    private Text healthText;
+    [SerializeField] Slider HealthSlider;
+    [SerializeField] Text healthText;
     private float targetProgress = 0;
 
     private void Awake(){
@@ -21,21 +21,35 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //IncrementProgress(targetProgress);
+        DisplayHealth();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(HealthSlider.value < health){
-          HealthSlider.value = health;
-        }
+        // if(HealthSlider.value < health){
+        //   HealthSlider.value = health;
+        // }
 
+    }
+
+    public void SetHealth(int amount)
+    {
+      Debug.Log("setting health");
+      HealthSlider.value = amount;
+      Debug.Log("slider health: "+HealthSlider.value);
+    }
+
+    public int GetHealth()
+    {
+      return health;
     }
 
     public void DecreaseHealth(int damage)
     {
         health-=damage;
+        SetHealth(health);
+        DisplayHealth();
         Debug.Log(damage+" points of damage taken");
         Debug.Log(health+" hp remaining");
         if(health<=0){
@@ -52,7 +66,7 @@ public class HealthBar : MonoBehaviour
 
     public void DisplayHealth()
     {
-      healthText.text = "HP: "+health.ToString();
+      healthText.text = "HP: "+HealthSlider.value;
     }
 
 

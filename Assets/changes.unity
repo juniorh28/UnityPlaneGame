@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81612c3a0e39e45829a29116fa10d7b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseScreen: {fileID: 0}
 --- !u!4 &76253110
 Transform:
   m_ObjectHideFlags: 0
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81612c3a0e39e45829a29116fa10d7b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseScreen: {fileID: 0}
 --- !u!1 &1105694527
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,12 +710,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ca571cdbb03481cbe3c9448427303a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementX: 0
-  movementY: 0
+  shootSFX: {fileID: 0}
   rigid: {fileID: 2141677881}
   collider2: {fileID: 2141677877}
+  bullet: {fileID: 0}
+  bulletSpawnPos: {fileID: 0}
   speed: 15
   isFacingRight: 1
+  healthBar: {fileID: 0}
+  score: {fileID: 0}
+  Explosion: {fileID: 0}
+  shootDelay: 0.5
+  hitSrc: {fileID: 0}
 --- !u!50 &2141677881
 Rigidbody2D:
   serializedVersion: 4
@@ -747,3 +755,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81612c3a0e39e45829a29116fa10d7b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseScreen: {fileID: 0}
