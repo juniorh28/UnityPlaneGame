@@ -34,4 +34,18 @@ public class PauseControl : MonoBehaviour
         Time.timeScale = 1;
         PauseScreen.SetActive(false);
     }
+    public void ClickPauseGame()
+    {
+        gameIsPaused = !gameIsPaused;
+        if(gameIsPaused)
+        {
+            Time.timeScale = 0f;
+            PauseScreen.SetActive(true);
+        }
+        else 
+        {
+            UnpauseGame();
+        }
+    }
+
 }

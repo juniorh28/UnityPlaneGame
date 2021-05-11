@@ -13,13 +13,15 @@ public class PlayerController2 : MonoBehaviour{
     [SerializeField] Collider2D collider2;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawnPos;
-	[SerializeField] float speed = 5.0f;
+	[SerializeField] float speed = 15.0f;
 	[SerializeField] bool isFacingRight;
     
     [SerializeField] Slider healthBar;
     [SerializeField] GameObject score;
+
+    public GameObject Explosion;
     private bool moving = false;
-    private float t = 0.0f;
+    //public float speed = 15.0f;
 
     private bool isShooting;
 
@@ -27,10 +29,23 @@ public class PlayerController2 : MonoBehaviour{
 
     [SerializeField] AudioSource hitSrc;
  
+
+
     // Start is called before the first frame update
     void Start()
     {
         shootSFX=GetComponent<AudioSource>();
+        Canvas canvas = FindObjectOfType<Canvas>();
+        float h = canvas.GetComponent<RectTransform>().rect.height;
+        float w = canvas.GetComponent<RectTransform>().rect.width;
+        Debug.Log("canvas width: "+w+" canvas height "+h);
+        Vector3 playerPosition= transform.localPosition;
+        Debug.Log("player is located in : "+playerPosition);
+    }
+
+    void Update()
+    {
+        ReturnToSceen();
     }
 
 
@@ -40,17 +55,15 @@ public class PlayerController2 : MonoBehaviour{
         //Press the Up arrow key to move the RigidBody upwards
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            rigid.velocity = new Vector2(0.0f, 15.0f);
+            rigid.velocity = new Vector2(0.0f, speed);
             moving = true;
-            t = 0.0f;
         }
 
         //Press the Down arrow key to move the RigidBody downwards
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
-            rigid.velocity = new Vector2(0.0f, -15.0f);
+            rigid.velocity = new Vector2(0.0f, -speed);
             moving = true;
-            t = 0.0f;
         }
 
          //Press the Left arrow key to move the RigidBody leftwards
@@ -58,10 +71,9 @@ public class PlayerController2 : MonoBehaviour{
         {
             if(isFacingRight)
                 Flip();
-            rigid.velocity = new Vector2(-15.0f, 0.0f);
+            rigid.velocity = new Vector2(-speed, 0.0f);
             isFacingRight = false;
             moving = true;
-            t = 0.0f;
         }
 
          //Press the Right arrow key to move the RigidBody rightwards
@@ -69,11 +81,25 @@ public class PlayerController2 : MonoBehaviour{
         {
             if(!isFacingRight)
                 Flip();
-            rigid.velocity = new Vector2(15.0f, 0.0f);
+            rigid.velocity = new Vector2(speed, 0.0f);
             isFacingRight=true;
             moving = true;
-            t = 0.0f;
         }
+
+
+        if(Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A)
+        || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D)
+        || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)
+        || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S)
+        )
+        {
+            moving = false;
+            rigid.velocity = new Vector2(0.0f, 0.0f);
+        }
+
+
+
+
 
         if(Input.GetButtonDown("Fire1"))
         {
@@ -90,6 +116,10 @@ public class PlayerController2 : MonoBehaviour{
             Invoke("ResetShoot",shootDelay);
 
        }
+
+        
+
+
 
     }
 
@@ -117,9 +147,42 @@ public class PlayerController2 : MonoBehaviour{
             hitSrc.Play();
             if(healthBar.value <= 0)
             {
-                 Destroy(gameObject); 
+                Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
+                healthBar.GetComponent<HealthBar>().Death();
             }
 	 	}
+    }
+
+    public void ReturnToSceen()
+    {
+            //Flip();
+            Vector3 playerPosition = transform.localPosition;
+            if(playerPosition.x >= 48)// if the player collide with the right wall
+            {
+                Debug.Log("collided with canvas");
+                Flip();
+                playerPosition.x = playerPosition.x  - 2;
+                transform.localPosition = playerPosition; 
+            }
+            if(playerPosition.x <= -48)// if the player collide with the left wall
+            {
+                Debug.Log("collided with canvas");
+                Flip();
+                playerPosition.x = playerPosition.x  + 2;
+                transform.localPosition = playerPosition; 
+            }
+            if(playerPosition.y >= 22)// if the player collide with the upper wall
+            {
+                Debug.Log("collided with canvas");
+                playerPosition.y = playerPosition.y  - 2;
+                transform.localPosition = playerPosition; 
+            }
+            if(playerPosition.y <= -22)// if the player collide with the lower wall
+            {
+                Debug.Log("collided with canvas");
+                playerPosition.y = playerPosition.y  + 2;
+                transform.localPosition = playerPosition; 
+            }  
     }
 
 

@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] GameObject player;
 
     private Slider HealthSlider;
+    private Text healthText;
     private float targetProgress = 0;
 
     private void Awake(){
@@ -49,6 +50,10 @@ public class HealthBar : MonoBehaviour
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void DisplayHealth()
+    {
+      healthText.text = "HP: "+health.ToString();
+    }
 
 
 }
