@@ -76,7 +76,7 @@ public class ScoreKeeper : MonoBehaviour
 
     public void DisplayName()
     {
-        nameTxt.text = "Player:, " + PersistentData.Instance.GetName();
+        nameTxt.text = "Player: " + PersistentData.Instance.GetName();
     }
 }
 
