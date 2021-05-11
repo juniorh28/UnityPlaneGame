@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110.6, y: -39.1}
+  m_AnchoredPosition: {x: -132, y: -39.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263284827
@@ -526,10 +526,10 @@ MonoBehaviour:
 
     A or Left Arrow to move LEFT
 
-    S or Right
-    Arrow to move RIGHT
+    S or Down
+    Arrow to move DOWN
 
-    D or Down Arrow to move DOWN'
+    D or Right Arrow to move RIGHT'
 --- !u!222 &933106375
 CanvasRenderer:
   m_ObjectHideFlags: 0
