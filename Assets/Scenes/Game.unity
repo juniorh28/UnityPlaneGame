@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &25128713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 25128715}
+  - component: {fileID: 25128714}
+  m_Layer: 0
+  m_Name: MusicControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &25128714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25128713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9201a92c5d75e43c9a6c950deece1017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectMusic: {fileID: 704781318}
+  gameSong: {fileID: 704781319}
+--- !u!4 &25128715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25128713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1731532, y: -2.905687, z: -2.6754332}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76253108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,6 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
+  musicVolume: {fileID: 0}
 --- !u!1 &900817790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,6 +1588,7 @@ MonoBehaviour:
   shootDelay: 3
   audioSrc: {fileID: 1902998587}
   hitSrc: {fileID: 1471824627}
+  controller: {fileID: 1572983063}
 --- !u!82 &1105694533
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2294,6 +2341,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 2008361997}
   sceneTxt: {fileID: 1391978555}
   nameTxt: {fileID: 900817792}
+  numOfEnemies: 1
 --- !u!1 &1648244532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,8 +2504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectMusic: {fileID: 0}
-  audioSource: {fileID: 0}
-  volumeSlider: {fileID: 0}
+  gameSong: {fileID: 0}
 --- !u!4 &1827126837
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] AudioSource audioSrc;
     [SerializeField] AudioSource hitSrc;
     private bool isShooting;
+    public GameObject controller;
     
     // Start is called before the first frame update
     void Start()
@@ -47,10 +48,6 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-        if (collision.gameObject.CompareTag("EnemyBullet"))
-		{
-			Debug.Log("collided with my bullet");
-	 	}
 		if (collision.gameObject.CompareTag("Bullet"))
 		{
 			Debug.Log("collided with bullet");
@@ -58,6 +55,7 @@ public class EnemyScript : MonoBehaviour
             hitSrc.Play();
             if(health <= 0)
             {
+                controller.GetComponent<ScoreKeeper>().DestroyEnemy();
                 Destroy(gameObject); 
             }
 	 	}

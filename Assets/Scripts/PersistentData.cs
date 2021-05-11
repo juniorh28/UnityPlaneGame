@@ -6,7 +6,7 @@ public class PersistentData : MonoBehaviour
 {
     [SerializeField] string playerName;
     [SerializeField] int playerScore;
-
+    [SerializeField] float musicVolume = 1f;
     public static PersistentData Instance;
 
     // Start is called before the first frame update
@@ -37,6 +37,10 @@ public class PersistentData : MonoBehaviour
         playerScore = score;
     }
 
+    public void SetVolume(float volume)
+    {
+        musicVolume = volume;
+    }
     public string GetName()
     {
         return playerName;
@@ -45,6 +49,11 @@ public class PersistentData : MonoBehaviour
     public int GetScore()
     {
         return playerScore;
+    }
+
+    public float GetVolume()
+    {
+        return musicVolume;
     }
     // Update is called once per frame
     void Update()

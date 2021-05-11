@@ -10,9 +10,8 @@ public class ScoreKeeper : MonoBehaviour
     [SerializeField] Text scoreTxt;
     [SerializeField] Text sceneTxt;
     [SerializeField] Text nameTxt;
-    [SerializeField] const int SCORE_PER_LEVEL = 5;
+    [SerializeField]  int numOfEnemies = 1;
     int level;
-    int targetScore;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +21,6 @@ public class ScoreKeeper : MonoBehaviour
         DisplayScore();
         DisplayScene();
         DisplayName();
-        targetScore = (level - 1) * SCORE_PER_LEVEL;
-
     }
 
     public void IncrementScore(int amount)
@@ -35,16 +32,23 @@ public class ScoreKeeper : MonoBehaviour
             score += amount;
             PersistentData.Instance.SetScore(score);
         }
-
-        DisplayScore();
-        if (score >=  targetScore)
-            AdvanceLevel();
+           DisplayScore();
 
     }
 
     public void IncrementScore()
     {
         IncrementScore(1);
+    }
+
+    public void DestroyEnemy()
+    {
+        numOfEnemies--;
+        IncrementScore(10);
+        if(numOfEnemies == 0)
+        {
+            AdvanceLevel();
+        }
     }
 
     public void DisplayScore()
@@ -54,7 +58,15 @@ public class ScoreKeeper : MonoBehaviour
 
     public void DisplayScene()
     {
-        sceneTxt.text = "Level " + (level-1);
+        Scene currentScene = SceneManager.GetActiveScene();
+ 
+        // Retrieve the name of this scene.
+        string sceneName = currentScene.name;
+        if (sceneName == "Win")
+        {
+            return;
+        }
+        sceneTxt.text = "Level " + (level-2);
     }
 
     public void AdvanceLevel()
@@ -64,7 +76,7 @@ public class ScoreKeeper : MonoBehaviour
 
     public void DisplayName()
     {
-        nameTxt.text = "Welcome, " + PersistentData.Instance.GetName();
+        nameTxt.text = "Player:, " + PersistentData.Instance.GetName();
     }
 }
 

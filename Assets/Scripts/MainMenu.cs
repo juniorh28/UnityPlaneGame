@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
 
     public InputField input;
+    public Slider musicVolume;
     public void PlayGame()
     {
         PersistentData.Instance.SetName(input.text);
@@ -43,5 +44,9 @@ public class MainMenu : MonoBehaviour
         PersistentData.Instance.SetName(input.text);
     }
 
+    public void SetVolume()
+    {
+         PersistentData.Instance.SetVolume(musicVolume.value);
+    }
 
 }

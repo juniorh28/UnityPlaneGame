@@ -9,6 +9,7 @@ TagManager:
   - HealthTag
   - GameMusic
   - Coin
+  - MenuSong
   layers:
   - Default
   - TransparentFX
